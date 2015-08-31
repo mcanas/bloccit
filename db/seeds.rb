@@ -28,4 +28,5 @@ puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 
-Post.find_or_create_by( title: 'This is a unique post', body: 'It will only be created once' )
+post = Post.find_or_create_by( title: 'This is a unique post', body: 'It will only be created once' );
+Comment.find_or_create_by( post: post, body: 'This is a unique comment' )
