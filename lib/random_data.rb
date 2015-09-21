@@ -27,4 +27,8 @@ module RandomData
   def random_integer
     rand(1..100)
   end
+
+  def random_boolean
+    rand(0..1) == 1
+  end
 end
