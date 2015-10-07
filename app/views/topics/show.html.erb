@@ -26,7 +26,7 @@
           <%= link_to sponsored_post.title, topic_sponsored_post_path(@topic,sponsored_post) %>
         </h4>
         <small>
-          submitted <%= time_ago_in_words(post.created_at) %> ago
+          submitted <%= time_ago_in_words(sponsored_post.created_at) %> ago
         </small>
       </div>
     </div>
