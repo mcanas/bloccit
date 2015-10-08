@@ -33,3 +33,5 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # adding bootstrap
 gem 'bootstrap-sass'
+
+gem 'bcrypt'
