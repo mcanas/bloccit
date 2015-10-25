@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :posts
+
   before_save { self.email = email.downcase }
   before_save { self.name = self.name.split.map!{|n| n.capitalize}.join(' ') if self.name }
 
