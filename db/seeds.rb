@@ -47,6 +47,7 @@ sponsored_posts = SponsoredPost.all
 
 100.times do
   Comment.create!(
+    user: users.sample,
     post: posts.sample,
     body: RandomData.random_paragraph
   )
