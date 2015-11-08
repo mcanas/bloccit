@@ -6,6 +6,12 @@
 </h1>
 <div class="row">
   <div class="col-md-8">
+    <%= render partial: 'labels/list', locals: { labels: @post.labels } %>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
     <p><%= @post.body %></p>
     <div>
       <h3>Comments</h3>
