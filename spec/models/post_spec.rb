@@ -96,4 +96,18 @@ RSpec.describe Post, type: :model do
       expect(@new_post.votes.where(user: user).count).to eq(1)
     end
   end
+
+  describe '#create_favorite' do
+    before do
+      @new_post = topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+    end
+
+    it 'automatically favorites the post' do
+      expect(@new_post.favorites.last).to_not be_nil
+    end
+
+    it 'associates the favroite with the current user' do
+      expect(@new_post.favorites.last.user.id).to eq(user.id)
+    end
+  end
 end
