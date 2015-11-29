@@ -1,4 +1,5 @@
 require 'rails_helper'
+include RandomData
 
 RSpec.describe User, type: :model do
   let(:user) { User.create! name: 'Bloccit User', email: 'user@bloccit.com', password: 'password' }
@@ -6,6 +7,7 @@ RSpec.describe User, type: :model do
   it { should have_many(:posts) }
   it { should have_many(:comments) }
   it { should have_many(:votes) }
+  it { should have_many(:favorites) }
 
   # tests for name
   it { should validate_presence_of(:name) }
@@ -127,6 +129,22 @@ RSpec.describe User, type: :model do
 
     it 'should be an invalid user due to incorrectly formatted email address' do
       expect(user_with_invalid_email_format).to_not be_valid
+    end
+  end
+
+  describe '#favorite_for(post)' do
+    before do
+      new_topic = Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)
+      @new_post = new_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+    end
+
+    it 'returns `nil` if the user has not favorited the post' do
+      expect(user.favorite_for(@new_post)).to be_nil
+    end
+
+    it 'returns the appopriate favorite if it exists' do
+      favorite = user.favorites.where(post: @new_post).create
+      expect(user.favorite_for(@new_post)).to eq(favorite)
     end
   end
 end
