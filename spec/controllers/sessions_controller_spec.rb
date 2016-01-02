@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-  let(:user) { User.create!( name: 'Bloc Head',  email: 'blochead@bloc.io', password: 'password' ) }
+  let(:user) { create(:user) }
 
   describe 'GET new' do
     it 'returns http success' do
