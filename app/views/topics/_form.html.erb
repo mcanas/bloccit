@@ -20,6 +20,10 @@
   <div class="form-group">
     <%= render partial: 'labels/form', locals: { f: f, labels: @topic.labels } %>
   </div>
+  <%= form_group_tag(topic.errors[:public]) do %>
+    <%= f.check_box :public %>
+    <%= f.label :public, 'Make Public' %>
+  <% end %>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
