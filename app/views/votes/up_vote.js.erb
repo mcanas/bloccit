@@ -1,0 +1,3 @@
+$(".js-post-<%=@post.id%>-points").html("<strong><%= @post.points %></strong>");
+$(".js-post-<%=@post.id%>-points-header").html("<%= pluralize(@post.points, 'point') %>");
+$(".js-post-<%=@post.id%>-votes").html("<%= pluralize(@post.up_votes, 'up vote') %>, <%= pluralize(@post.down_votes, 'down vote') %>");
