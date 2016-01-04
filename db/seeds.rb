@@ -92,6 +92,13 @@ member = User.create!(
   password: 'helloworld'
 )
 
+canyon = User.create!(
+  name: 'Canyon',
+  email: 'canyon.the.malamute@gmail.com',
+  password: 'password',
+  role: 'admin'
+)
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
