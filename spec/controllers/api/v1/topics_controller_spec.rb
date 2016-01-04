@@ -16,7 +16,7 @@ RSpec.describe Api::V1::TopicsController, type: :controller do
     end
   end
 
-  context 'unauthorized user' do
+  context 'authorized user' do
     before do
       controller.request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(my_user.auth_token)
     end
