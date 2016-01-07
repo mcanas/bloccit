@@ -30,10 +30,11 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create, :update]
 
       resources :topics, only: [:index, :show] do
-        resources :posts, only: [:index, :show]
+        resources :posts, only: [:index, :show, :create]
       end
 
       resources :topics, except: [:edit, :new]
+      resources :posts, except: [:edit, :new, :create]
 
       resources :posts, only: [:index, :show] do
         resources :comments, only: [:index, :show]
